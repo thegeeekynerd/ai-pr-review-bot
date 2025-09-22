@@ -10,6 +10,10 @@ load_dotenv()
 
 app = FastAPI()
 
+@app.get("/")
+async def read_root():
+    return {"message": "AI PR Review Bot is running!"}
+
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GITHUB_WEBHOOK_SECRET = os.getenv("GITHUB_WEBHOOK_SECRET", "")
